@@ -1,0 +1,474 @@
+/*Web con informacion de vocabulario de CSS: http://apps.workflower.fi/vocabs/css/es */
+
+/*Lo primero que hacemos en un css es colocar los estilos generales, como por ejemplo el tamanyo de los elementos en 
+pantalla, en el body, los h1... */
+body{
+    font-size: 1cm;
+}
+/*Con las comas podemos agrupor etiquetas de diferenetes tipos y asi tener los mismos estilos, es buena costumbre
+que si ponemos una coma saltemos de linea */
+h1,
+h2,
+h3{
+    font-size: 1cm;
+}
+
+h1.tituloP{
+    color: rgb(238, 248, 248);
+    text-align: center;/*Color, text-align...son los atributos. Los valores son el color que eligimos, grueso etc */
+    font-size: 2cm;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: 15px solid rgb(209, 161, 5);
+    background-color: rgb(10, 10, 10);
+   }
+
+.titulo{
+    color: darkgreen;
+    margin-left: 2cm;
+    font-size: 1.5cm;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: left;
+}
+
+/*En Css todo funciona en cascada, por lo tanto si yo crea un estilo para todos los h1, con un color determinado,
+un grosor de fuente y un background. Posteriormente creo una clase para un h1 en concreto (<h1 class=''),
+si a esta clase le doy un estilo, por ejemplo el color de la fuente, se aplicara este ultimo estilo de color,
+por dos motivos:
+-LA ESPECIFICIDAD EN CSS, una Class manda mas que un Type dentro de los selectores.
+-La cascada, los ultimos estilos se superponen a los de mas arriba(Siempre que sea ganador de la especifidad)
+Pero tenemos que tener en cuenta, que todos los estilos que no agregamos a la nueva clase, en este caso el grosor
+de fuente y el background, estaran presentes en el elemento h1 que queremos modificar.
+
+El siguiente ejemplo muestra el efecto de la cascada:*/
+
+.cascada{
+color: coral;
+font-size: 1.5cm;
+background-color: rgb(208, 245, 121);  
+}
+
+.cascada{
+color: cornflowerblue;
+text-align: center;}
+
+/*                          SELECTORES    
+
+             SELECTORES SIMPLES (TYPE,CLASS,ID,INLINE)
+
+Type: 
+Son los selectores que usan una etiqueta de HTML (No se recomienda su uso salvo para estilos base) */
+
+body{
+    background-color: beige;
+}
+
+/*Selectores por ID (No usar)*/
+#item{
+    color: crimson;
+    text-align: left;
+    }
+
+/*Selector por clase(Recomendado)
+La etiqueta del html puede tener varias clases, siempre que esten separadas por un espacio (class 'a b c d')*/
+.item{
+    color: darkorange;}
+.segunda{
+    font-family: sans-serif;
+    margin-left: 3cm;
+}    
+ 
+
+/* ESPECIFICIDAD DE SELECTORES EN CSS
+
+Normalmente si tenemos un codigo de gran volumen, es normal encontrar conflictos entre selectores,
+en esos casos CSS hace uso de un algoritmo, para asi poder detectar que selector prioriza sus estilos.
+
+La siguiente lista muestra los valores de cada selector:
+
+SELECTORES:        VALOR:
+ - Type              1
+ - Class             10                 Tipo < Clase < Id < InLine < Important
+ - Id                100
+ - In line           1000 
+ - !important gana a todos (no se recomienda)      */
+
+ /*
+
+ //                     SELECTORES COMPUESTOS
+
+Selectores Descendientes:
+
+El primero es el padre y el segundo un descendiente (hijo, nieto...)
+Estos selectores van siempre separados por un espacio.*/
+
+.ul li{
+    color: greenyellow;
+}
+
+.ul span{
+    color: darkviolet;
+    font-size: 0.5cm;
+}
+
+
+/*
+Selectores Hijo Directo:
+Son los selectores que descienden directamente del padre, van separados con un > */
+
+h2{
+    color: chocolate;
+    text-align: left;
+}
+h2 > span{
+    color:blueviolet;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/*Selectores de hermano siguiente:
+
+Detecta el primer hermano a continuacion de la etiqueta seleccionada, agregando un + */
+
+.h2{
+    color: rgb(228, 81, 105);
+}
+
+.h2 + p {
+    color: blue;
+}
+
+/* Selectores de todos los hermanos: 
+
+Detecta todos los hermanos que se encuentran por debajo de la etiqueta, agregando un ~ */
+.h2 ~ p{
+    background-color: rgb(247, 181, 195);
+    
+}
+/* Combinacion de selectores  
+
+/*
+Elemento con clase 'title' y una segunda clase llamada 'mas', juntas y SIN ESPACIOS
+(tener en cuenta que en Html podemos poner varias clases, siempre que esten separadas por un espacio)*/
+
+.title.mas{
+    color: black;
+    text-align: left;
+
+}
+/*Aqui es lo mismo que el anterior ejemplo, sin embargo estamos didiendo que el hermano directo cambie su color*/
+.title.mas + h1{
+    color: gold;
+    text-align: left;
+}
+
+/*Selectores de ATRIBUTOS 
+
+Todas las etiquetas tienen diferentes atributos como href, title, name... para llamar a estas usamos [atributo] 
+
+Existen diferentes formas de usarlos, lo mas normal es usando el nombre con el valor, ademas podemos combinar
+con lo visto hasta ahora*/
+
+/*Todos los elementos con un href como atributo */
+[href]{
+    color: yellowgreen;
+}
+/*Todos los elementos con un href y que el valor coincida con la url 'http...' */
+[href = 'https://sport.es']{
+    color: brown}
+
+/* Todos los elementos de <a> con un title con valor que empiece con 'prueba', uso COMODIN ^ */
+a[title^='prueba']{
+    color: rgb(45, 145, 145);
+}
+
+/*Todos las clases llamadas span con valor de clase 'facil' */
+.span[class = 'facil']{
+color: darkmagenta;
+}
+
+/*Todos los elementos que tengan una clase y ademas tengan un titulo con valor 'span' */
+[class][title='span']{
+    color: rgb(255, 6, 6);
+    
+}
+   /*                        LOS COMODINES      (^  $  *)
+
+ COMODIN ^ (empieza con...) 
+
+Elemento <P> con un atributo title, con un valor que  comienza por ' Soy un' */
+
+p[title^='Soy un ']{
+    color: rgb(245, 118, 72);
+    background-color: beige;
+}
+/* COMODIN $ (finaliza con...)
+
+Elemento con un href, con valor que termina en 'pdf' */
+
+[href$='pdf']{
+    display: block;
+    background: url(https://i1.wp.com/www.avite.org/wp-content/uploads/2019/05/PDF-SIMBOLO.jpg?fit=225%2C225&ssl=1)
+    left/contain no-repeat;
+    padding-left: 1.5em;
+}
+/* COMODIN * (Contiene)
+
+Elemento con la propiedad for, con un valor que contenga 'me ayuda' */
+
+[for*='me ayuda']{
+    color: burlywood;
+}
+
+/* Podemos indicar cuando buscamos un valor, que NO sea Case Sensitive (por defecto es Case Sensitive), 
+agregando una 'i' */
+
+[for='hola' i]{
+    color:palevioletred;
+}
+
+/*                          PSEUDOCLASES (:)
+
+Las pseudaclases en CSS son selectores dinamicos que pueden estar o no atados a un elemento, existen de varios tipos, 
+unos responden al contexto, otros responden a la interaccion del usuario y otros a propiedades de los elementos. */
+
+/* Pseudoclases con elementos HTML */
+
+.pseudo{
+    display: inline-block;
+    background-color: red;
+    color: antiquewhite;
+    line-height: 2.5;
+    padding: 0 1em;
+    text-decoration: none;
+}
+.pseudo:hover{
+    background-color: darkred; /* HOVER:Se acciona cuando se posiciona el puntero del mousse encima del elemento */
+}
+.pseudo:active{
+    transform: scale(0.9); /*ACTIVE: Se acciona al hacer click en el elemento */
+}
+.pseudo:visited{
+    color: aqua; /*VISITED: Se activa cuando un link de url ha sido ya visitado anteriormente(Como hace google) */
+}
+
+/*Podemos usar las pseudoclases tanto en el body como todos los descendientes de esta
+body:hover{
+
+} */
+
+/*Gracias a la pseudoclase TARGET, podemos hacer actuar los elementos sin necesidad de java Script */
+
+a[href^="#parrafo"]{
+ margin-left: 6cm;
+ position: relative;
+ top: 1cm;
+}
+.parrafoEjemplo{
+    margin-top: 15em;
+    margin-bottom: 10em;
+}
+.parrafoEjemplo:target{
+    padding-top: 0;
+}
+
+/* ROOT  es la pseudoclase que actua a nivel del HTML, osea por encima de body 
+
+:root{
+    background-color: blue;
+} */
+
+/* EMPTY esta pseudoclase nos ayuda a manipular los elementos que esten vacios, aveces hay programas o plataformas
+que generan elementos vacios y pueden ocasionar cambios en el estilo de la pagina, con empty lo solucionamos */
+
+p[class*='ppp']{
+    padding: .5em;
+    background-color: yellow;
+}
+p:empty{
+    background-color: rebeccapurple;
+    /*display: none; En el ejemplo uso el selector para cambiar el background de los <p> vacios, sin embargo si quisiera
+    eliminarlos del html usaria display:none */
+}
+/* Tenemos tambien la pseudoclase :NOT(selector), recive un parametro y actua sobre cualquier elemento que no cumpla con
+el selector*/
+
+/* Como los dos <P> NOO tienen :hover, aplica lo que le digamos */
+p[class$='vacio']:not(:hover){
+    background-color: red;
+}
+
+/*Pseudaclases de FORMULARIOS */
+
+/*  :FOCUS  */
+
+form label{
+    padding: 1.5px;
+    color: blue
+}
+form input{
+    padding: 1px;
+    font-size: 1cm;
+    background-color: aquamarine;
+}
+form input:focus{
+    background-color: darkcyan; /*Cuando te posicionas en un input del formulario */
+
+}
+/*   :ENABLED :DISABLED  Todos los formularios tienen por defecto enabled, ahora si tu tienes por ejemplo un input de
+tu formulario en disabled con esta pseudaclase puedes manipular ese elemento*/
+form input:disabled{
+background-color: black;
+}
+/*Imaginemos que estamos trabajando junto con JS, y cambiamos el atributo de una etiqueta del formulario de disabled a
+enabled, desde el css podriamos detectar el elemento con :enabled */
+
+/*  :CHEECKED   Puede ser un input-radio, checkbox, select... */
+
+input[class='ser' i]:checked + label{
+    background-color: rgb(255, 136, 0);
+}
+
+/* :OPTIONAL :REQUIRED 
+
+En los formularios podemos tener secciones las cuales son obligatorias de rellenar o simplemente opcionales, asi que 
+podemos resaltar con colores por ejemplo aquellas zonas que sean obligatorias, el formulario por default usa :optional
+*/
+form input:required{
+    border: 2px solid red
+}
+
+/*  :VALID :INVALID  
+
+En los formularios aveces necesitamos validar algun campo, si queremos indicar que la validacion es correcta podemos usar
+:valid o :invalid */
+
+.validacion:valid{
+    background-color: yellow;
+}
+.validacion:invalid{
+    background-color: red;
+}
+
+/*  :IN-RANGE  :OUT-OF-RANGE
+
+Imaginemos que tenemos un formulario con un input que pida la edad de una persona, pero esta no puede ser mayor de 20,
+gracias a esta pseudoclase podemos seleccionar ese elemento que se sale del rango */
+
+.validacion:out-of-range{
+    background-color: red;
+}
+
+/* PSEUDOCLASES CON CHILD
+*/
+div p:first-child{         /*Primer elemento de la lista*/
+    color:blueviolet;
+}
+div p:last-child{            /*Ultimo elemento de la lista*/
+    color:rgb(43, 226, 119);
+}
+div p:nth-child(5){            /*Quinto elemento de la lista*/
+    color: rgb(245, 242, 239);
+}
+div p:nth-child(even){          /*Todos los pares de la lista*/
+   background-color: rgb(151, 105, 105);
+}
+div p:nth-child(odd){            /*Todos los inpares de la lista*/
+    background-color: rgb(255, 178, 83);
+}
+div p:nth-child(4n){            /*Multiplos de 4 de la lista*/
+    border: 5px solid red;
+}
+div p:nth-last-child(2n){       /*Multiplos de 2 de la lista pero empezando desde el final*/
+    border: 5px solid black;
+}
+div p:nth-child(n + 5){         /* N selecciona todos, mas cinco quiere decir que a partir del quinto  elemento todos
+                                todos quedan seleccionados*/
+    font-family:Helvetica, sans-serif;
+    font-size: 1.5cm;
+}
+
+/* Cuando estamos localizando un hijo con :nth-child(), tenemos que tener en cuenta si buscamos dentro de 
+un div, es solo un ejemplo, si tenemos varios elementos, unos son <p> y otros pueden ser otros <div>,
+son todos hijos de <div>, no importa el tipo de etiqueta cuando buscamos hijos con esta pseudoclase */
+
+.div p:nth-child(n){
+    color: black;
+    background-color: beige;
+    border: 0cm;                  /*Estilos para evitar la cascada de los anteriores ejercicios*/
+    font-size: 1cm;
+}
+/*Ejemplo usando :nth-child() con mezcla de elementos*/
+
+.div p:nth-child(3){
+    color: red;    /*A pesar de que los dos primeros elementos son divs se cuenta desde el principio*/
+}
+.div p:nth-child(1){
+    color: blue;   /*No pasa nada, porque el primer elemento es un div y yo estoy buscando un p */
+}
+.div div:nth-child(2){
+    color: blue;
+}
+
+/* PSEUDOCLASES TYPE OF 
+
+A diferencia del caso anterior, donde todos los elementos de la lista contaban como hijos, existe el selector por tipo, 
+encargado de buscar los hijos por tipo de etiqueta y no por numero total de elementos */
+
+.divdiv label{
+    color: black;
+}
+
+.divdiv label:first-of-type{
+    color: brown;    /* Primer label de la lista*/
+}
+.divdiv label:last-of-type{   /*Ultimo label de la lista */
+    color: chartreuse;
+}
+.divdiv div:nth-of-type(n){   /*Todos los div de la lista*/
+    background-color: blue;
+    color: white;
+}
+.divdiv label:nth-last-of-type(n){
+    background-color: goldenrod; /*Todos los label de la lista*/
+}
+
+article:scope{
+    color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*Css tiene variables y funciones internas, esto seria un ejemplo de como crear la variable color con dos guiones,
+y como posteriormente la invocamos con en el color 
+
+ul{
+    --color: rgb(199, 36, 36);
+    color: var(--color);
+    background-color: rgb(178, 178, 235);
+    font-size: 0.8cm;
+    text-align: center;
+}
+Si intento invocar la variable desde una clase padre a <p>, esta no se activara ya que solo funciona con descendientes.
+
+Ahora esa misma variable, la instancio con otro color y la invoco de nuevo, como vemos el label se puso en amarillo, sin
+embargo el ul sigue estando en rojo, ya que la variable se almacena dos veces 
+body{
+    --color: rgb(243, 243, 63);
+}
+p{
+    color: var(--color);
+    font-size: 0.8cm;
+    text-align: center;
+    background-color: rgb(178, 178, 235);
+}
+
+
+*/
+

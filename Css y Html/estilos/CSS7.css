@@ -1,0 +1,213 @@
+.tituloP{
+    color: rgb(238, 248, 248);
+    text-align: center;/*Color, text-align...son los atributos. Los valores son el color que eligimos, grueso etc */
+    font-size: 2cm;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: 15px solid rgb(209, 161, 5);
+    background-color: rgb(10, 10, 10);
+   }
+   body{
+       background-color: rgb(208, 250, 140);
+       font-size: 1cm;
+      /* margin: 0;
+       padding: 0;*/ /*Margenes a cero */
+   }
+   .titulo{
+    color: rgb(241, 121, 121);
+    margin-left: 2cm;
+    font-size: 1.5cm;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: left;
+}
+/* Buenas practicas*/
+*,
+ *::before,
+ *::after{
+  box-sizing: border-box;
+ }
+
+ .fotos{
+     display: flex;
+     flex-direction: column;
+ }
+ .img{
+     width: 80%;
+     margin: 20px auto;
+     
+ }
+
+
+
+ /*             GRID LAYOUT
+
+ CSS Grid layout contiente funciones de diseño dirigidas a los desarrolladores de aplicaciones web. El CSS grid se puede 
+ utilizar para lograr muchos diseños diferentes. También se destaca por permitir dividir una página en áreas o regiones 
+ principales, por definir la relación en términos de tamaño, posición y capas entre partes de un control construido a 
+ partir de primitivas HTML.
+
+Al igual que las tablas, el grid layout permite a un autor alinear elementos en columnas y filas. Sin embargo, con CSS 
+grid son posibles muchos más diseños y de forma más sencilla que con las tablas. Por ejemplo, los elementos secundarios 
+de un contenedor de cuadrícula podrían posicionarse para que se solapen y se superpongan, de forma similar a los 
+elementos posicionados en CSS.  
+
+El siguiente ejemplo muestra un grid de tres columnas con filas nuevas creadas con un mínimo de 100 píxeles y un máximo
+automático. Los elementos se han colocado en el grid utilizando posicionamiento in-line.  */
+
+.wrapper {
+    max-width: 940px;
+    margin: 0 auto;
+  }
+  
+  .wrapper > div {
+    border: 2px solid rgb(233,171,88);
+    border-radius: 5px;
+    background-color: rgba(233,171,88,.5);
+    padding: 1em;
+    color: #d9480f;
+  }
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+  }
+  .one {
+    grid-column: 1 / 2;
+    grid-row: 1;
+  }
+  .two { 
+    grid-column: 2 / 4;
+    grid-row: 1 / 3;
+  }
+  .three {
+    grid-column: 1;
+    grid-row: 2 / 5;
+  }
+  .four {
+    grid-column: 3;
+    grid-row: 3;
+  }
+  .five {
+    grid-column: 2;
+    grid-row: 4;
+  }
+  .six {
+    grid-column: 3;
+    grid-row: 4;
+  }
+  
+
+  /*
+PROPIEDADES 
+grid-template-columns
+grid-template-rows
+grid-template-areas
+grid-template
+grid-auto-columns
+grid-auto-rows
+grid-auto-flow
+grid
+grid-row-start
+grid-column-start
+grid-row-end
+grid-column-end
+grid-row
+grid-column
+grid-area
+row-gap
+column-gap
+gap
+
+FUNCIONES 
+repeat()
+minmax()
+fit-content()
+*/
+
+.contenedor{
+    margin: auto;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr; /*Podemos distribuir las columnas en forma de porcentage, con los fr,
+    estos dividen el espacio de viewport por el valor total de los fr y reparte en proporcion ahora sera (40%/20%/40%)*/
+    grid-template-rows: 50px 250px 200px 100px; /*O podemos poner los valores deseados de cada elemento */
+    gap: 10px; /*Espaciamos todas las celdas*/
+}
+.item{
+    background-color: blueviolet;
+}
+.item:nth-child(even){
+    background-color: white;
+}
+
+/*                      TRABAJANDO CON LAS CELDAS                */
+
+.contenedor2{
+    margin: auto;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr); /*4 columnas iguales */
+    grid-template-rows: 130px 250px 80px; 
+    column-gap: 5px; /*Podemos especificar la separacion de las columnas o los rows */
+    row-gap: 15px;
+}
+.contenedor2 div{
+background-color: rgba(255, 0, 0, 0.726);
+color: bisque;
+border: 5px double rgb(3, 3, 3);
+border-radius: 20px;
+display: flex;  /*Usamos display flex para centrar los textos, o colocarlos a gusto propio */
+align-items: center;
+justify-content: center;
+
+}
+
+.item2:nth-child(odd){
+background-color: rgba(0, 0, 0, 0.479);
+}
+.item2:nth-child(1){
+    grid-column-start: 1; /*El primer hijo empieza en la LINEA 1 Y TERMINA EN LA LINAE 4 */
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    
+}
+.item2:nth-child(9){
+    grid-column: 3 / 4; /*Shorthand de start y end */
+    grid-row: 3 / 5;
+}
+.item2:nth-child(10){
+    grid-column: 4 / 5;
+    grid-row: 3/span 3; /*Empieza en el row 3 y sumas 3 mas */
+}
+
+/*             LAYOUT CON GRID       */  
+
+.header{
+    background-color: rgba(127, 255, 212, 0.671);
+    grid-column: 1 / 4;}
+.main{
+    background-color: rgba(102, 51, 153, 0.664);
+}
+.aside1{
+    background-color: rgba(51, 79, 80, 0.664);
+    grid-column: 1 /2;
+    grid-row: 2;
+}
+.aside2{
+    background-color: rgba(102, 97, 25, 0.664);
+}
+.footer{
+    background-color: rgba(220, 220, 220, 0.753);
+    grid-column: 1 / 4;
+}
+
+.cont{
+    margin: auto; 
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 100px 1fr 50px;
+    gap: 3px;
+}

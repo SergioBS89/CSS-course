@@ -1,0 +1,145 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="estilos/CSS1.css">
+    <title>CSS desde 0 </title>
+</head>
+<body>
+    <h1 class="tituloP">Introduccion a CSS</h1>
+     <br>
+     <br>
+     <br>
+    <h1 class="cascada">Consecuencias de la cascada de CSS</h1>
+    <br>
+    <h1 class="titulo">SELECTORES CSS:</h1>
+    
+    <ul class="ul">
+        <li>Hijo de UL<span>Nieto de UL</span></li>
+    </ul>
+
+    <ol>
+        <li id="item">Ejemplo selector por id</li>
+        <li class="item segunda">Ejemplo selector por clase</li>
+    </ol>
+    <h2>Soy un h2<span> ----Y yo soy un hijo directo de h2----</span></h2>
+
+    <h2 class="h2">Selectores por hermanos</h2>
+    <p>Hermano A</p>
+    <p>Hermano B</p>
+    <p>Hermano C</p>
+
+    <h1 class="title mas">Combinar selectores(tengo dos clases)</h1>
+    <h1 class="title">Combinar selectores(tengo una clase)</h1>
+
+    <a href="https://google.com">Link selector [href]</a>
+    <br>
+    <a href="https://sport.es">Link selector [href = valor]</a>
+    <br>
+    <a href="https://3djuegos.es" title="prueba de comodin ^">Link selector [href] con etiqueta a</a>
+    <br>
+    <span class ='facil'> Selector por valor de la clase </span>
+    <br>
+    <span class ='span' title="span"> Selector por valor de la clase y titulo</span>
+    <br>
+    <br>
+    <h1 class="titulo">COMODINES PARA SELECTORES</h1>
+    
+    <p title="Soy un elemento p">I want to be a web developer as soon as possible(selector del comodin ^)</p>
+    <a href="/files/manuales/cursoCSS.pdf">Descargar curso pdf (selector de comodin $)</a>
+    <br>
+    <label for="Este for me ayuda en el selector">For that reason, now I'm learning CSS from Leeds (selector del comodin *)
+    </label>
+    <br>
+    <label for="HOLA">Ejemplo selector por valor no CaseSensitive</label>
+    <br>
+    <h1 class="titulo">PSEUDOCLASES</h1>
+    <a class="pseudo" href="#">Ejemplo de pseudoclases</a>
+    <br>
+    <br>
+    <nav>
+        <a href="#parrafoEjemplo">Target Css</a>
+    </nav>
+       <p class="parrafoEjemplo" id="parrafoEjemplo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+           Quia tempora nam deserunt numquam facere, sunt sequi. Esse, distinctio? Dolore autem sapiente tenetur 
+           velit aliquam facilis quisquam fugit est, soluta eveniet.</p>
+    
+    <p class="ppp">pseudoclase empty</p>       
+    <p class="ppp vacio"></p>       
+    <p class="ppp">pseudoclase empty</p>       
+    <p class="ppp vacio"></p>       
+    <p class="ppp">pseudoclase empty</p> 
+    <br>
+    <form action="" class="form">
+        <label for="name">Tu nombre</label>
+        <input type="text" id="text">
+        <input type="text" name="text" id="text" disabled>
+        <br>
+        <br>
+        <br>  
+        <input type="radio" class="Ser">      
+        <label for="Sergio">Sergio</label>
+        <br> 
+        <input type="radio" class="Ser">       
+        <label for="Monica">Monica</label>
+        </select>
+    </form>      
+    <br>
+    <form>
+        Escribe tu direccion de casa: 
+        <input type="text" required>
+        <br>
+        <br>
+        Validando email (amarillo correcto, rojo incorrecto)
+        <input type="email" class="validacion">
+        <br>
+        <br>
+        Validando rangos, max 18 - min 14 (amarillo correcto, rojo incorrecto)
+        <input type="number" max="18" min="14" class="validacion">
+        <div>
+            <p>Prueba Pseudaclases con Child 1</p>
+            <p>Prueba Pseudaclases con Child 2</p>
+            <p>Prueba Pseudaclases con Child 3</p>
+            <p>Prueba Pseudaclases con Child 4</p>
+            <p>Prueba Pseudaclases con Child 5</p>
+            <p>Prueba Pseudaclases con Child 6</p>
+            <p>Prueba Pseudaclases con Child 7</p>
+            <p>Prueba Pseudaclases con Child 8</p>
+            <p>Prueba Pseudaclases con Child 9</p>
+            <p>Prueba Pseudaclases con Child 10</p>
+        </div>
+        <br>
+        <br>
+        <div class="div">
+            <div>Soy un div 1</div>
+            <div>Soy un div 2</div>
+            <p>Prueba Pseudaclases con Child 3</p>
+            <p>Prueba Pseudaclases con Child 4</p>
+            <div>Soy un div 5</div>
+        </div>
+         <br>
+         <br>
+         <div class="divdiv">
+            <div>Soy un div 1</div>
+            <div>Soy un div 2</div>
+            <label for="">Soy un label 3</label>
+            <br>
+            <label for="">Soy un label4</label>
+            <div>Soy un div 5</div>
+            <label for="">Soy un label4</label>
+        </div>
+
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="/Index.html">Regresar al indice</a>
+  
+    
+    <!--<ul>
+        <li>Creando una variable</li>
+    </ul>
+    <p>Uso la misma variable que mi padre </p>-->
+</body>
+</html>

@@ -1,0 +1,506 @@
+
+
+.tituloP{
+    color: rgb(238, 248, 248);
+    text-align: center;/*Color, text-align...son los atributos. Los valores son el color que eligimos, grueso etc */
+    font-size: 2cm;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: 15px solid rgb(209, 161, 5);
+    background-color: rgb(10, 10, 10);
+   }
+   body{
+       background-color: rgb(146, 186, 238);
+       font-size: 1cm;
+   }
+   .titulo{
+    color: rgba(177, 6, 163, 0.986);
+    margin-left: 2cm;
+    font-size: 1.5cm;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: left;
+}
+/* Buenas practicas*/
+*,
+ *::before,
+ *::after{
+  box-sizing: border-box;
+ }
+
+/*              PSEUDOELEMENTOS EN CSS
+
+Al igual que las pseudo-classes, los pseudo-elementos se añaden a los selectores, pero en cambio, no describen un estado 
+especial sino que, permiten añadir estilos a una parte concreta del documento. 
+Por ejemplo, el pseudoelemento ::first-line selecciona solo la primera línea del elemento especificado por el selector.
+
+Sintaxis:
+selector::pseudo-elemento { propiedad: valor; }
+
+Lista de pseudoelementos
+::after
+::before
+::first-letter
+::first-line
+::selection
+::backdrop
+::placeholder 
+::marker 
+::spelling-error 
+::grammar-error
+
+BEFORE:
+En CSS, ::before crea un pseudo-elemento que es el primer hijo del elemento seleccionado. Es usado normalmente para 
+añadir contenido estético a un elemento, usando la propiedad content. Este elemento se muestra en línea con el texto 
+de forma predeterminada. */
+
+.pse::before{
+    content: 'Hola desde Leeds!! Ultimos dias aqui y aprendiendo CSS'
+}
+/*
+AFTER:
+En CSS, ::after crea un pseudo-elemento que es el último hijo del elemento seleccionado. Es comunmente usado para añadir 
+contenido cosmético a un elemento con la propiedad content.Es en linea (inline) de forma predeterminada. */
+
+.pse::after{
+    content: url(https://www.iconarchive.com/download/i62501/ampeross/qetto/css.ico);
+}
+/*
+FIRST LETTER:
+El pseudo-elemento ::first-letter aplica estilos a la primera letra de la primera línea un elemento de bloque, 
+sólo cuando no es precedido de otro contenido (como imágenes o tablas). */
+
+.pse::first-letter{
+    color: red;
+}
+ /*
+ FIRST LINE:
+ El Pseudoelemento ::first-line aplica estilos a la primera línea de un elemento de bloque. Nótese que la longitud de 
+ la primera línea depende de muchos factores, incluyendo el ancho del elemento, el ancho del documento y el tamaño de 
+ fuente del texto.
+ */
+ .pse::first-line{
+    font-size: 0.5cm;
+}
+
+
+ /*                         FLOAT 
+
+ La propiedad float especifica si un elemento debe salir del flujo normal y aparecer a la izquierda o a la derecha de 
+ su contenedor, donde los elementos de texto y los en línea aparecerán a su alrededor.
+
+valor inicial: ninguno
+Se aplica a: todos los elementos
+valor heredado: no
+Porcentajes:
+Media: visual
+valor calculado: como se especifica
+Un elemento flotante es un elemento en el que el valor calculado de float no es igual a none.  
+
+SINTAXIS
+float: left | right | none |
+
+Valores
+left : El elemento flota a la izquierda de su bloque contenedor.
+right : El elemento flota a la derecha de su bloque contenedor.
+none : El elemento no flota.*/
+
+ article p{
+    font-size: 0.7cm;
+    color: black;
+    margin-left: 2cm;
+}
+article img{
+ width: 500px;
+ height: 250px;
+ margin: 0px 10px 10px 10px;
+ float: right;
+}
+article{
+  width: 90%; 
+}
+
+/*                     OVERFLOW  (EXCEDENTE DE CONTENIDO)
+La propiedad CSS overflow  especifica: si recortar contenido, dibujar barras de desplazamiento o mostrar el contenido 
+excedente en un elemento a nivel de bloque.
+
+Usando la propiedad overflow con un valor distinto a visible, valor por defecto, creará un nuevo contexto de formatos 
+de bloques. Esto es técnicamente necesario debido a que si un elemento flotante interceptara con otros forzaría a 
+reajustar el contenido alrededor de los elementos que se interceden. El reajuste sucedería luego de cada desplazamiento, 
+y llevaría a un desplazamiento demasiado lento.
+
+
+SINTAXIS: [ visible | hidden | clip | scroll | auto ]
+
+overflow: visible
+overflow: hidden
+overflow: scroll
+overflow: auto
+
+overflow: inherit
+
+VALORES
+
+-Visible: Valor por defecto. El contenido no es recortado, podría ser dibujado fuera de la caja contenedora.
+-Hidden: El contenido es recortado y no se muestran barras de posición.
+-Scroll: El contenido es recortado y el navegador web usa las barras de desplazamiento, se haya recortado contenido o no. 
+Esto previene cualquier problema con las barras de desplazamiento apareciendo o desapareciendo en un entorno dinámico. 
+Puede que las impresoras impriman contenido excedente.
+Auto: Depende del agente de usuario. Navegadores de escritorio como Firefox proveen barras de desplazamiento si hay 
+contenido excedente.
+
+Usamos el ejemplo anterior del perrito, le agregamos un border al article y asi podemos comprobar como la imagen sobresale
+del mismo borde, eso es porque los elementos flotantes no son hermanos de los elementos normales, si queremos que la 
+imgen este dentro del borde, usamos overflow:hidden  */
+
+.articulo{
+    border: 2px solid rgb(50, 153, 37);
+    background-color: rgb(148, 105, 90);
+    }
+.articulo{
+    border: 2px solid rgb(50, 153, 37);
+    background-color: rgb(148, 105, 90);
+    overflow: hidden;
+        }
+
+/*Otro ejemplo de como usar overflow y scroll */
+
+.scroll{
+    width: 350px;
+    height: 150px;
+    color: crimson;
+    border: 3px solid black;
+    overflow: auto;
+    background-color: blanchedalmond;
+}
+
+/*             POSITION CSS
+
+La propiedad position de CSS especifica cómo un elemento es posicionado en el documento. 
+Las propiedades top, right, bottom, y left determinan la ubicación final de los elementos posicionados.
+
+TIPOS DE POSICIONAMIENTO
+
+-Un elemento posicionado es un elemento cuyo valor computado de position es relative, absolute, fixed, o sticky. 
+ (En otras palabras, cualquiera excepto static que es un valor por defecto).
+
+-Un elemento posicionado relativamente es un elemento cuyo valor computado de position es relative. 
+ Las propiedades top y bottom especifican el desplazamiento vertical desde su posición original; 
+ las propiedades left y right especifican su desplazamiento horizontal.
+
+-Un elemento posicionado absolutamente es un elemento cuyo valor computado de  position es absolute o fixed. 
+ Las propiedades top, right, bottom, y  left especifican el desplazamiento desde los bordes del bloque contenedor del
+ elemento. (El bloque contenedor es el ancestro relativo al cual el elemento está posicionado). Si el elemento tiene 
+ márgenes, se agregarán al desplazamiento. el elemento establece un nuevo contexto de formato de bloque para su contenido.
+
+-Un elemento posicionado fijamente es un elemento cuyo valor de  position computado es sticky. Es tratado como un 
+ elemento posicionado relativamente hasta que su bloque contenedor cruza un límite establecido (como por ejemplo dando a
+ top cualquier valor distinto de auto), dentro de su flujo principal (o el contenedor dentro del cual se mueve), desde el 
+ cual es tratado como "fijo" hasta que alcance el borde opuesto de su bloque contenedor.
+
+La mayoría de las veces, los elementos absolutamente posicionados que tienen su height y width establecidos en auto son 
+ajustados hasta acomodarse a su contenido. Sin embargo, elementos non-replaced y absolutamente posicionados se pueden 
+crear para llenar el espacio vertical disponible, especificando tanto top como bottom, y dejando height sin especificar 
+(es decir, auto). De igual manera se pueden utilizar para llenar el espacio horizontal disponible especificando tanto 
+left como right, y dando a width el valor de auto.
+
+A excepción del caso anteriormente descrito (de elementos posicionados absolutamente rellenando el espacio disponible):
+
+Si ambos, top y bottom están especificados (técnicamente, no auto), top gana.
+Si ambos, left y right, están especificados,  left gana cuando es ltr (Inglés, japonés horizontal, etc.) y right gana 
+cuando direction es rtl (Persa, árabe, hebreo, etc.).
+
+SINTAXIS
+La propiedad position es especificada como una palabra única elegida de la siguiente lista de valores.
+
+VALORES
+
+-Static
+El elemento es posicionado de acuerdo al flujo normal del documento. Las propiedades top, right, bottom, left, and z-index
+no tienen efecto. Este es el valor por defecto.
+-Relative
+El elemento es posicionado de acuerdo al flujo normal del documento, y luego es desplazado con relación a sí mismo, con 
+base en los valores de top, right, bottom, and left. El desplazamiento no afecta la posición de ningún otro elemento; 
+por lo que, el espacio que se le da al elemento en el esquema de la página es el mismo como si la posición fuera static. 
+Este valor crea un nuevo contexto de apilamiento, donde el valor de z-index no es auto. El efecto que tiene relative 
+sobre los elementos table-*-group, table-row, table-column, table-cell, y table-caption no está definido.
+-Absolute
+El elemento es removido del flujo normal del documento, sin crearse espacio alguno para el elemento en el esquema de la 
+página. Es posicionado relativo a su ancestro posicionado más cercano, si lo hay; de lo contrario, se ubica relativo al 
+bloque contenedor inicial. Su posición final está determinada por los valores de top, right, bottom, y left.
+Este valor crea un nuevo contexto de apilamiento cuando el valor de z-index no es auto. Elementos absolutamente posicio-
+nados pueden tener margen, y no colapsan con ningún otro margen.
+-Fixed
+El elemento es removido del flujo normal del documento, sin crearse espacio alguno para el elemento en el esquema de la 
+página. Es posicionado con relación al bloque contenedor inicial establecido por el viewport, excepto cuando uno de sus 
+ancestros tiene una propiedad transform, perspective, o filter establecida en algo que no sea none (ver CSS Transforms 
+Spec), en cuyo caso ese ancestro se comporta como el bloque contenedor. (Notar que hay inconsistencias del navegador con 
+perspective y filter contribuyendo a la formación del bloque contenedor.) Su posición final es determinada por los valores 
+de top, right, bottom, y left.
+Estos valores siempre crean un nuevo contexto de apilamiento. En documentos impresos, el elemento se coloca en la misma 
+posición en cada página.
+-Sticky 
+El elemento es posicionado de acuerdo al flujo normal del documento, y luego es desplazado con relación a su ancestro que 
+se desplace más cercano y su bloque contenedor (ancestro en nivel de bloque más cercano) incluyendo elementos relacionados 
+a tablas, basados en los valores de top, right, bottom, y left. El desplazamiento no afecta la posición de ningún otro 
+elmento.
+Estos valores siempre crean un nuevo contexto de apilamiento. Nótese que un elemento sticky se "adhiere" a su ancestro más 
+cercano que tiene un "mecanismo de desplazamiento" (creado cuando el overflow es hidden, scroll, auto, o bien overlay), 
+aún si ese ancestro no es el ancestro con desplazamiento más cercano. Esto inhibe efectivamente el comportamiento "sticky".
+
+/* POSTION RELATIVE y Z-INDEX*/
+
+/*Tenemos cuantro div (cajas) con las siguientes propiedades */
+.box {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    background: red;
+    color: white;
+    padding: 60px;;
+  }
+/*Ahora caja caja por caja, cambio el color de estas y uso postion:relative, a partir de ahi movemos la cajas 
+para la direccion que deseemos, tener en cuenta que top=abajo/bottom=arriba/left=derecha/right=izquierda , funciona 
+a la inversa */
+  .box.two{
+      background-color: blue;
+      position: relative;
+      top: 30px;
+      left: 50px;
+
+  }
+  .box.four{
+      background-color: yellow;
+      position: relative;
+      bottom: 30px;
+      right: 50px;
+      z-index: -1;
+      /*La propiedad CSS z-index indica el orden de la capa de un elemento posicionado y sus descendientes. Cuando varios
+      elementos se superponen, los elementos con mayor valor z-index cubren aquellos con menor valor. No funciona si el elemento
+      esta en static*/
+  }
+  .box.one{
+      background-color: rgb(0, 175, 0);
+      position: relative;
+      top: 60px;
+      left: 100px;
+      z-index: 1;
+  }
+
+  /*    POSITION ABSOLUTE  */
+
+  /*Ejemplo poster de Star Wars mandalorian:
+
+  Creamos primero un box o espacio que usaremos para declarar el position relative */
+  .poster{
+      width: 400px;
+      position: relative;
+      margin-left: 1cm;
+      border: 4px solid goldenrod;
+      display: inline-block;
+  }
+  /*Agregamos la imagen y la ajustamos a la caja creada */
+  .poster img{
+      width: 100%;
+  }
+  /* Posteriormente gracias a absolute podemos colocar el texto en relacion a la caja o imagen en este caso. */
+  .poster p{
+      position: absolute;
+      bottom: 50%;
+      color: white;
+      text-align: center;
+      background-color: rgba(243, 71, 71, 0.356);
+      width: 100%;
+      padding: 3px 0px;
+      margin-bottom: 0;
+  }
+    
+  /*Ejemplo mapa ESDLA*/
+  
+  .mapa{
+      width: 800px;
+      position: relative;
+      margin-left: 1cm;
+      display: inline-block
+
+  }
+  .mapa .map{
+      width: 100%;
+  }
+  .frodo{
+      width: 70px;
+      position: absolute;
+      top: 60px;
+      left:130px;
+  }
+  .sauron{
+    width: 90px;
+    position: absolute;
+    bottom: 90px;
+    right: 30px;
+}
+
+/* Ejercicio mas avanzado con estilos (shepirot)*/
+
+.pos{
+    width: 1000px;
+    position: relative;
+    display: inline-block;
+    border: 3px solid black;
+    margin-top: 3cm;
+    margin-left: 160px;
+
+}
+
+.pos .sph{
+    width: 100%;
+}
+
+.sph + p{
+
+position: absolute;
+top: 0;
+width: 100%;
+background-image: url(https://c4.wallpaperflare.com/wallpaper/1016/935/824/lava-texture-fire-red-wallpaper-preview.jpg);
+text-align: center;
+height: 100%;
+margin-top: 0;
+left: -200%;
+overflow: hidden;
+display: flex;
+justify-content: center;
+align-items: center;
+color: rgb(248, 239, 239);
+font-size: 2cm;
+transition: all .5s;
+}
+
+.pos:hover p{
+    left: 0;
+}
+
+
+/*Ejercicio de menu desplegable con Float y Position (Se recomienda hacer con flex box)*/
+
+.UL.pricipal{margin-left: 4cm;} /*Margen general del desplegable*/
+
+.UL{  /*Selector de todos los <ul>*/
+    list-style: none;  /*Elimina el circulo de los <li>  */
+    padding: 0;
+    display: table; /* Similar a overflow:hidden  */
+    background-color: rgba(0, 0, 0, 0.651);
+    font-size: 0.7cm;
+}
+
+.UL a {  /*Selector de todos los <a> */
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 20px 13px;
+    white-space: nowrap;  /*Propiedad para evitar el salto de linea en textos largos */
+}
+
+.UL > li { /*Selector de hijo directo de ul */
+    float: left;  /*Hace flotar el menu */
+}
+.UL li {  /*Selector de hijos de ul*/
+    position: relative;
+}
+.UL ul{ /*Selector del primer grupo de subclase */
+    display: none;
+    position: absolute;
+    background-color: rgb(114, 49, 175);
+}
+.UL ul ul{  /*Selector del segundo grupo de items */
+    position: absolute;
+    background-color: red;
+    left: 100%;
+    top: 0;
+}
+.UL li:hover > ul{  /*Si hacemos hover en algun item que tenga hijo directo ul, esta pasa a tener display:block */
+display: block;
+}
+.UL li:hover{ /*Todos los elementos cambian de color cuando esta el mouse encima */
+    background-color: rgba(0, 0, 0, 0.815);
+}
+.ultima li:hover{ /*Selector del ultimo grupo de elementos, tenia problemas con el hoover oscuro asi que lo hice aparte*/
+    background-color: rgba(0, 0, 0, 0.815);
+    width: 100%;
+}
+
+/*     POSITION FIXED */
+
+/*Barra horizontal fija:
+
+Esta barra se desplaza haciendo scroll a la pagina, en el ejemplo esta abajo de todo, puede sernos de ayuda si queremos
+mantener el cabecero de la pagina siempre visible o por ejemplo crear una notificacion temporal */
+
+h1[class='fixed']{
+    background-color: blue;
+    color: white;
+    border: 3px solid black;
+    text-align: center;
+    font-size: 0.5cm;
+    padding: 5px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 0;
+    z-index: 3;
+}
+body{
+    margin-bottom: 100px;
+} 
+
+/*Lista vertical con FIXED */
+
+body{  /* Margen que le doy a todo el body para que el desplegable no solape ningun elemento */
+    margin-left: 3%;
+}
+.navnav{  /*Selector del nav */
+    background-image: url(https://enrelajo.files.wordpress.com/2012/07/689-fuegoimagen.jpg);
+    border-style: none solid none none;
+    border-color: rgba(0, 0, 0, 0.671);
+    border-width: 1cm;
+    border-radius: 0px 20px 20px 0px;
+    width: 16%; /*Distancia que se asoma el desplegable */
+    position: fixed;
+    top: 10px;
+    left: -180px; /*Hacemos que se esconda todo el contenido excepto el borde */
+    } 
+
+  .desplegable{ /*Selector del texto vertical del desplegable*/
+      color: white;
+      transform: rotate(90deg);
+      position: absolute;
+      left: 143px;
+      top: 225px;
+      font-size: 0.6cm;
+  }
+.navnav:hover{ /*Si hacemos hover en la pestanya el desplegable aparece */
+    left: 0;
+}
+.mainmain{ /*Selector de espacio de las imagenes, le damos margen para no molestar al desplegable */
+    margin-left: 21%;
+}  
+
+.listaUL{ /*Selector del <ul>  */
+    margin: 0;
+    list-style: none;
+    padding-left: 0%;
+}
+.texto{ /*Selector del 'box' del todos los textos */
+    padding: 13px 10px;
+    font-size: 0.6cm;
+    border-width: 0.5px 0px ;
+    }
+.texto >a{ /*Selector de los <a> dentro de los textos */
+    color: white;
+    text-decoration: none;
+}
+.texto:hover{
+    background-color: rgba(255, 0, 0, 0.685)
+}
+.fotolist{ /*Medidas de las fotos */
+ width: 800px;
+ height: 500px;
+}

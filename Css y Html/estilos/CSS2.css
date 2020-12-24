@@ -1,0 +1,21 @@
+
+/* https://fonts.google.com Pagina con diferentes estilos de letras */
+
+
+body{
+    background-color: rgb(191, 167, 247);
+}
+h2.font{
+    font-family: 'Fredericka the Great';
+    text-align: center;
+    color: red;
+    font-size: 80px;
+}
+.tituloP{
+    color: rgb(238, 248, 248);
+    text-align: center;/*Color, text-align...son los atributos. Los valores son el color que eligimos, grueso etc */
+    font-size: 2cm;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: 15px solid rgb(209, 161, 5);
+    background-color: rgb(10, 10, 10);
+   }

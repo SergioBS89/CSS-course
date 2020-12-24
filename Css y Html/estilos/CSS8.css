@@ -1,0 +1,737 @@
+.tituloP{
+    color: rgb(238, 248, 248);
+    text-align: center;/*Color, text-align...son los atributos. Los valores son el color que eligimos, grueso etc */
+    font-size: 2cm;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: 15px solid rgb(209, 161, 5);
+    background-color: rgb(10, 10, 10);
+   }
+   body{
+       background-color: rgba(247, 7, 7, 0.199);
+       font-size: 1cm;
+      /* margin: 0;
+       padding: 0;*/ /*Margenes a cero */
+   }
+   .titulo{
+    color: rgb(255, 0, 0);
+    margin-left: 2cm;
+    font-size: 1.5cm;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: left;
+}
+/* Buenas practicas*/
+*,
+ *::before,
+ *::after{
+  box-sizing: border-box;
+ }
+
+ .section{
+    display: flex;
+    flex-direction: column;
+}
+img{
+   width: 600px;
+   margin: auto;
+   padding: 10px;
+}
+
+
+
+
+
+ /*                      TRANSFORM             
+
+ La propiedad CSS transform te permite modificar el espacio de coordenadas del modelo de formato visual CSS. Usándola, 
+ los elementos pueden ser trasladados, rotados, escalados o sesgados de acuerdo a los valores establecidos.
+
+Si la propiedad tiene un valor diferente a none, se creará un contexto de pila. En ese caso, el objeto actuará como un 
+bloque de contención para los elementos con "position: fixed" que contenga.                
+
+FUNCIONES
+
+La propiedad CSS transform permite manipular el sistema de coordenadas de un elemento usando las funciones de 
+transformación. Estas funciones son descritas a continuación:
+
+MATRIX
+transform:  matrix(a, c, b, d, tx, ty)
+Específica una matriz de transformación 2D compuesta por seis valores a especificar. Esto es el equivalente a la 
+aplicación de una transformación lineal de una matriz ( a	b	tx	c	d	ty	0	0	1 ).
+
+ROTATE
+transform:  rotate(deg);      ej. rotate(90deg) 
+Define una operación de rotación 2D de un elemento, específicando la cantidad de grados (deg) que este rotará en sentido
+de las macecillas del reloj (según lo especificado por la propiedad transform-origen). La operación corresponde a la 
+matriz [cos(angle) sin(angle) -sin(angle) cos(angle) 0 0].
+
+ROTATE X
+transform:  rotateX(deg);     ej. rotateX(90deg)       
+Define una operación de rotación 3D de un elemento en el eje X.
+
+ROTATE Y
+transform:  rotateY(deg);     ej. rotateY(90deg)        
+Define una operación de rotación 3D de un elemento en el eje Y.
+
+ROTATE Z
+transform:  rotateZ(deg);     ej. rotateZ(90deg)        
+Define una operación de rotación 3D de un elemento en el eje Z.
+
+SCALE
+transform:  scale(sx[, sy]);     ej. scale(2.5, 4)
+Especifica una operación de escalado 2D descrita por [sx, sy].
+
+Nota: Si sy no es especificado, se asumirá que tanto sx como sy tendrán el mismo valor
+
+SCALE X
+transform:  scaleX(sx);      ej. scale(2.5)       
+Especifica una operación de escalado 2D usando el vector [sx, 1].
+
+SCALE Y
+transform:  scaleY(sy);     ej. scale(4)              
+Especifica una operación de escalado 2D usando el vector [1, sy].
+
+SKEW
+transform:  skew(ax[, ay]);      ej. skew(90deg,180deg)   
+Sesga el elemento a lo largo del eje X y Y por los ángulos especificados. Si no se proporciona ay, no se llevará a 
+cabo el sesgo del eje Y.
+
+SKEW X
+transform:  skewX(deg);      ej. skew(90deg)       
+Sesga un elemento a lo largo del eje X por el ángulo dado.
+
+SKEW Y
+transform:  skewY(deg);      ej. skew(180deg)           
+Sesga un elemento a lo largo del eje Y por el ángulo dado.
+
+TRANSLATE
+transform:  translate(tx[, ty]);      ej. translate(50px, 100px)  
+Especifica una tanslación 2D dada por el vector [tx, ty]. Si ty no es específicada, se asumirá que su valor es cero.
+
+Cada translation-value puede ser un valor de longuitud o un valor de  porcentaje.
+
+TRANSLATE X
+transform:  translateX(tx);     ej. translateX(50px)  
+Translada un elemento a lo largo del eje X.
+
+TRANSLATE Y
+transform:  translateY(ty);      ej. translateY(100px)     
+Translada un elemento a lo largo del eje Y.
+ */
+
+ /*           TRANFORM ROTATION      */
+
+ .zonaTranform{
+     display: flex;
+     justify-content: space-around;
+ }
+
+ :root{
+     --cm: 300px;
+ }
+
+ /* ROTATION 
+
+ Estilos de las cajas, para todos los ejemplos */
+
+ .contenedor{
+     width: var(--cm);
+     height: var(--cm);
+     border: 1px solid black;
+     background-image: linear-gradient( transparent 149px, black 149px, black 150px, transparent 150px),
+     linear-gradient(to left, transparent 149px, black 149px, black 150px, transparent 150px);
+     
+ }
+ .box{
+     display: inline-flex;
+     position: relative;
+     width: var(--cm);
+     height: var(--cm);
+     background-image: linear-gradient( transparent 149px, blue 149px, blue 151px, transparent 151px),
+     linear-gradient(to left, transparent 149px, red 149px, red 151px, transparent 151px);
+     border: 1px solid red;
+     transform: rotate(20deg);
+     opacity: 0.8;
+    }
+    .y{
+        position: absolute;
+        color: red;
+        top: -8px;
+        left: 150px;
+    }
+    .x{
+        color: blue;
+        align-self: center;
+        margin-left: auto;
+        margin-top: 20px;
+        margin-right: 10px;
+    }
+
+  /* ROTATION X  */
+
+  .contenedor1{
+    width: var(--cm);
+    height: var(--cm);
+    border: 1px solid black;
+    background-image: linear-gradient( transparent 149px, black 149px, black 150px, transparent 150px),
+    linear-gradient(to left, transparent 149px, black 149px, black 150px, transparent 150px);
+    
+}
+.box1{
+    display: inline-flex;
+    position: relative;
+    width: var(--cm);
+    height: var(--cm);
+    background-image: linear-gradient( transparent 149px, blue 149px, blue 151px, transparent 151px),
+    linear-gradient(to left, transparent 149px, red 149px, red 151px, transparent 151px);
+    border-width: 1px 1px 1px 3px;
+    border-style: solid;
+    border-color: red;
+    transform: rotateY(40deg);
+    opacity: 0.8;
+   
+   }
+
+ /* ROTATION Y */
+
+ .contenedor2{
+    width: var(--cm);
+    height: var(--cm);
+    border: 1px solid black;
+    background-image: linear-gradient( transparent 149px, black 149px, black 150px, transparent 150px),
+    linear-gradient(to left, transparent 149px, black 149px, black 150px, transparent 150px);
+    
+}
+.box2{
+    display: inline-flex;
+    position: relative;
+    width: var(--cm);
+    height: var(--cm);
+    background-image: linear-gradient( transparent 149px, blue 149px, blue 151px, transparent 151px),
+    linear-gradient(to left, transparent 149px, red 149px, red 151px, transparent 151px);
+    border-width: 1px 2px 3px 1px;
+    border-style: solid;
+    border-color: red;
+    transform: rotateX(50deg);
+    opacity: 0.8;
+   }
+/*    SCALE   */
+
+.contenedors{
+    width: var(--cm);
+    height: var(--cm);
+    border: 1px solid black;
+    background-image: linear-gradient( transparent 149px, black 149px, black 150px, transparent 150px),
+    linear-gradient(to left, transparent 149px, black 149px, black 150px, transparent 150px);
+    
+}
+.boxs{
+    display: inline-flex;
+    position: relative;
+    width: var(--cm);
+    height: var(--cm);
+    background-image: linear-gradient( transparent 149px, blue 149px, blue 151px, transparent 151px),
+    linear-gradient(to left, transparent 149px, red 149px, red 151px, transparent 151px);
+    border: 1px solid red;
+    transform: scale(1.1);
+    opacity: 0.8;
+   }
+ /*  SCALE X  */
+
+ .contenedors1{
+    width: var(--cm);
+    height: var(--cm);
+    border: 1px solid black;
+    background-image: linear-gradient( transparent 149px, black 149px, black 150px, transparent 150px),
+    linear-gradient(to left, transparent 149px, black 149px, black 150px, transparent 150px);
+    
+}
+.boxs1{
+    display: inline-flex;
+    position: relative;
+    width: var(--cm);
+    height: var(--cm);
+    background-image: linear-gradient( transparent 149px, blue 149px, blue 151px, transparent 151px),
+    linear-gradient(to left, transparent 149px, red 149px, red 151px, transparent 151px);
+    border: 1px solid red;
+    transform: scaleX(1.2);
+    opacity: 0.8;
+   }
+/*   SCALE Y  */
+   .contenedors2{
+    width: var(--cm);
+    height: var(--cm);
+    border: 1px solid black;
+    background-image: linear-gradient( transparent 149px, black 149px, black 150px, transparent 150px),
+    linear-gradient(to left, transparent 149px, black 149px, black 150px, transparent 150px);
+    
+}
+.boxs2{
+    display: inline-flex;
+    position: relative;
+    width: var(--cm);
+    height: var(--cm);
+    background-image: linear-gradient( transparent 149px, blue 149px, blue 151px, transparent 151px),
+    linear-gradient(to left, transparent 149px, red 149px, red 151px, transparent 151px);
+    border: 1px solid red;
+    transform: scaleY(1.2);
+    opacity: 0.8;
+   }
+   /*    SKEW   */
+
+.contenedorsk{
+    width: var(--cm);
+    height: var(--cm);
+    border: 1px solid black;
+    background-image: linear-gradient( transparent 149px, black 149px, black 150px, transparent 150px),
+    linear-gradient(to left, transparent 149px, black 149px, black 150px, transparent 150px);
+    
+}
+.boxsk{
+    display: inline-flex;
+    position: relative;
+    width: var(--cm);
+    height: var(--cm);
+    background-image: linear-gradient( transparent 149px, blue 149px, blue 151px, transparent 151px),
+    linear-gradient(to left, transparent 149px, red 149px, red 151px, transparent 151px);
+    border: 1px solid red;
+    transform: skewX(10deg) skewy(-20deg);
+    opacity: 0.8;
+   }
+ /*  SKEW X  */
+
+ .contenedorsk1{
+    width: var(--cm);
+    height: var(--cm);
+    border: 1px solid black;
+    background-image: linear-gradient( transparent 149px, black 149px, black 150px, transparent 150px),
+    linear-gradient(to left, transparent 149px, black 149px, black 150px, transparent 150px);
+    
+}
+.boxsk1{
+    display: inline-flex;
+    position: relative;
+    width: var(--cm);
+    height: var(--cm);
+    background-image: linear-gradient( transparent 149px, blue 149px, blue 151px, transparent 151px),
+    linear-gradient(to left, transparent 149px, red 149px, red 151px, transparent 151px);
+    border: 1px solid red;
+    transform: skewX(20deg);
+    opacity: 0.8;
+   }
+/*   SKEW Y  */
+   .contenedorsk2{
+    width: var(--cm);
+    height: var(--cm);
+    border: 1px solid black;
+    background-image: linear-gradient( transparent 149px, black 149px, black 150px, transparent 150px),
+    linear-gradient(to left, transparent 149px, black 149px, black 150px, transparent 150px);
+    
+}
+.boxsk2{
+    display: inline-flex;
+    position: relative;
+    width: var(--cm);
+    height: var(--cm);
+    background-image: linear-gradient( transparent 149px, blue 149px, blue 151px, transparent 151px),
+    linear-gradient(to left, transparent 149px, red 149px, red 151px, transparent 151px);
+    border: 1px solid red;
+    transform: skewY(20deg);
+    opacity: 0.8;
+   }
+    /*    TRANSLATE  */
+
+.contenedort{
+    width: var(--cm);
+    height: var(--cm);
+    border: 1px solid black;
+    background-image: linear-gradient( transparent 149px, black 149px, black 150px, transparent 150px),
+    linear-gradient(to left, transparent 149px, black 149px, black 150px, transparent 150px);
+    
+}
+.boxt{
+    display: inline-flex;
+    position: relative;
+    width: var(--cm);
+    height: var(--cm);
+    background-image: linear-gradient( transparent 149px, blue 149px, blue 151px, transparent 151px),
+    linear-gradient(to left, transparent 149px, red 149px, red 151px, transparent 151px);
+    border: 1px solid red;
+    transform: translate(100px, 75px);
+    opacity: 0.8;
+   }
+ /*  TRANSLATE X  */
+
+ .contenedort1{
+    width: var(--cm);
+    height: var(--cm);
+    border: 1px solid black;
+    background-image: linear-gradient( transparent 149px, black 149px, black 150px, transparent 150px),
+    linear-gradient(to left, transparent 149px, black 149px, black 150px, transparent 150px);
+    
+}
+.boxt1{
+    display: inline-flex;
+    position: relative;
+    width: var(--cm);
+    height: var(--cm);
+    background-image: linear-gradient( transparent 149px, blue 149px, blue 151px, transparent 151px),
+    linear-gradient(to left, transparent 149px, red 149px, red 151px, transparent 151px);
+    border: 1px solid red;
+    transform: translateX(50px);
+    opacity: 0.8;
+   }
+/*   TRANSLATE Y  */
+   .contenedort2{
+    width: var(--cm);
+    height: var(--cm);
+    border: 1px solid black;
+    background-image: linear-gradient( transparent 149px, black 149px, black 150px, transparent 150px),
+    linear-gradient(to left, transparent 149px, black 149px, black 150px, transparent 150px);
+    
+}
+.boxt2{
+    display: inline-flex;
+    position: relative;
+    width: var(--cm);
+    height: var(--cm);
+    background-image: linear-gradient( transparent 149px, blue 149px, blue 151px, transparent 151px),
+    linear-gradient(to left, transparent 149px, red 149px, red 151px, transparent 151px);
+    border: 1px solid red;
+    transform: translateY(60px);
+    opacity: 0.8;
+   }
+
+   /* Todos las propiedades de transform vistas anteriormente las podemos combinar */
+
+   /*Ejemplo 1  */
+   .contenedorc{
+    width: var(--cm);
+    height: var(--cm);
+    border: 1px solid black;
+    background-image: linear-gradient( transparent 149px, black 149px, black 150px, transparent 150px),
+    linear-gradient(to left, transparent 149px, black 149px, black 150px, transparent 150px);
+    
+}
+  .boxc{
+    display: inline-flex;
+    position: relative;
+    width: var(--cm);
+    height: var(--cm);
+    background-image: linear-gradient( transparent 149px, blue 149px, blue 151px, transparent 151px),
+    linear-gradient(to left, transparent 149px, red 149px, red 151px, transparent 151px);
+    border: 1px solid red;
+    transform: rotate(30deg) scaleX(0.5) skewY(25deg) rotateX(30deg);
+    opacity: 0.8;
+   }
+  
+   /*Ejemplo 2  */
+   
+   .contenedorc1{
+    width: var(--cm);
+    height: var(--cm);
+    border: 1px solid black;
+    background-image: linear-gradient( transparent 149px, black 149px, black 150px, transparent 150px),
+    linear-gradient(to left, transparent 149px, black 149px, black 150px, transparent 150px);
+    
+}
+  .boxc1{
+    display: inline-flex;
+    position: relative;
+    width: var(--cm);
+    height: var(--cm);
+    background-image: linear-gradient( transparent 149px, blue 149px, blue 151px, transparent 151px),
+    linear-gradient(to left, transparent 149px, red 149px, red 151px, transparent 151px);
+    border: 1px solid red;
+    transform: scale(1.2) translate(40px, 40px);
+    opacity: 0.8;
+   }
+
+   /*Ejemplo 3 */
+
+   .contenedorc2{
+    width: var(--cm);
+    height: var(--cm);
+    border: 1px solid black;
+    background-image: linear-gradient( transparent 149px, black 149px, black 150px, transparent 150px),
+    linear-gradient(to left, transparent 149px, black 149px, black 150px, transparent 150px);
+    
+}
+  .boxc2{
+    display: inline-flex;
+    position: relative;
+    width: var(--cm);
+    height: var(--cm);
+    background-image: linear-gradient( transparent 149px, blue 149px, blue 151px, transparent 151px),
+    linear-gradient(to left, transparent 149px, red 149px, red 151px, transparent 151px);
+    border: 1px solid red;
+    transform: translateY(100%) scale(0.5) translateY(-150px);
+    opacity: 0.8;
+   }
+   
+   /*Ejercicio Darth Vader  */
+
+   .cont{
+       position: relative;
+       width: 600px;
+       height: 500px;
+       background: url(https://www.denofgeek.com/wp-content/uploads/2018/01/vader-main.jpg?fit=1440%2C960) center/cover;
+       margin: auto;
+   }
+   .cont::before{
+       position: absolute;
+       display: flex;
+       width: 100%;
+       height: 100%;
+       background-color: rgba(0, 0, 0, 0.8);
+       border: 2px solid red;
+       content: "I'm your father!";
+       color: white;
+       justify-content: center;
+       align-items: center;
+       transform: scale(0.00001);
+       transition: all 3s;
+}
+
+.cont:hover:before{
+    transform: scale(1) rotate(-360deg);
+}
+
+/*   EJERCICIO HOVER TEXTO    */
+
+.cont1{
+    margin: auto;
+    width: 800px;
+    height: 400px;
+    background-color: rgba(235, 235, 54, 0.795);
+    position: relative;
+    display: flex;
+    border: 10px solid rgb(78, 78, 78);
+    overflow: hidden;
+    transform: skewX(-200deg);
+    transition: all 4s;
+}
+.cont1:hover{
+    transform: skew(180deg)
+}
+.cont1::before{
+    content: '';
+ width: 100%;
+ height: 100%;
+ background-color: rgba(0, 225, 255, 0.473);
+ border-radius: 50%;
+ position: absolute;
+ bottom: -200px;
+ left: -400px;
+ transform: scale(0.0001);
+ transition: all 4s;
+
+}
+.cont1:hover:before{
+    transform: scale(3);
+}
+.cont1::after{
+    content: 'Hola!!!';
+    color: rgb(255, 0, 0);
+    margin: auto;
+    font-size: 2cm;
+    transform: translate(-300px, 300px);
+    
+    transition: all 4s;
+}
+.cont1:hover::after{
+    transform: translate(0,0);
+}
+
+/*     TRANSFORM ORIGIN EJERCICIO CORAZON */
+
+.cont0{
+    width: 700px;
+    height: 500px;
+    margin-left: 12cm;
+    position: relative;
+    display: flex;
+}
+.cont0::before,
+.cont0::after{
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    content: '';
+    background-color: red;
+    border-radius: 50% 50% 0 0;
+}
+
+.cont0::after{
+    transform: rotate(-50deg);
+    transform-origin: bottom left;
+    text-align: center;
+    line-height: 150px;
+    transition: all 5s;
+}
+.cont0::before{
+    transform: rotate(50deg);
+    transform-origin: bottom right;
+    background-color: red;
+    right: 100%;
+    transition: all 5s;
+    
+}
+.texto{
+    z-index: 10;
+    position: absolute;
+    top: 100px;
+    left: -108px;
+    font-size: 1.5cm;
+    color: azure;
+    transform: scale(0.0001);
+    transition: all 3s;
+}
+.cont0:hover .texto{
+    transform: scale(1.2);
+}
+
+
+
+/*               TRANSITION       
+La propiedad transition es una propiedad abreviada de transition-property, transition-duration, transition-timing-function, 
+y transition-delay. Permite definir la transición entre dos estados de un elemento. Hay diferentes estados que pueden ser 
+definidos utilizando pseudo-clases como :hover o :active  o aplicado dinámicamente usando JavaScript.  
+
+Sintaxis
+
+Aplicar a 1 propiedad
+nombre de la propiedad | duración:
+transition: margin-left 4s;
+
+nombre de la propiedad | duración | retardo: 
+transition: margin-left 4s 1s;
+
+nombre de la propiedad | duración | función | retardo:
+transition: margin-left 4s ease-in-out 1s;
+
+Aplicar a 2 propiedades
+transition: margin-left 4s, color 1s;
+
+Aplicar a todas las propiedades que cambien
+transition: all 0.5s ease-out;
+
+
+/*     EJERCICIO DE RUEDA GIRATORIA   */
+
+.rueda{
+    width: 500px;
+    height: 500px;
+    background-color:black;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 3s ease-in-out;
+}
+.llanta{
+
+    width: 70%;
+    height: 70%;
+    background-color: gray;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 3s ease-in-out;
+    
+}
+.radios{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image:linear-gradient(transparent 49%, black 49%, black 50%,  transparent 50%),
+    linear-gradient(to left, transparent 49%, black 49%, black 50%,  transparent 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.radios div{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image:linear-gradient(transparent 49%, black 49%, black 50%,  transparent 50%),
+    linear-gradient(to left, transparent 49%, black 49%, black 50%,  transparent 50%);
+    transform: rotate(45deg);
+
+}
+.rueda:hover{
+    transform: translateX(800px);
+}
+.rueda:hover .llanta{
+    transform: rotate(360deg);
+}
+
+
+/*   Otros ejemplos */
+
+.tran{
+    margin: 3cm 0;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    background-color: black;
+
+}
+.tran:hover :nth-child(n){
+    transform: translateX(1263px);
+    background-color: yellow;
+}
+
+.circulo{
+    width: 70px;
+    height: 70px;
+    background-color: red;
+    transition: all 3s linear;
+    font-size: medium;
+    text-align: center;
+
+
+}
+.circuloA{
+    width: 70px;
+    height: 70px;
+    background-color: rgb(17, 201, 11);
+    transition: all 3s;
+    font-size: medium;
+}
+.circuloB{
+    width: 70px;
+    height: 70px;
+    background-color: rgb(93, 11, 201);
+    transition: 3s ease-in ;
+    font-size: medium;
+    text-align: center;
+}
+.circuloC{
+    width: 70px;
+    height: 70px;
+    background-color: rgb(243, 110, 1);
+    transition: 3s ease-out ;
+    font-size: medium;
+    text-align: center;
+}
+.circuloD{
+    width: 70px;
+    height: 70px;
+    background-color: rgb(255, 7, 172);
+    transition: 3s ease-in-out ;
+    font-size: medium;
+    text-align: center;
+}
+.circuloE{
+    width: 70px;
+    height: 70px;
+    background-color: rgb(20, 211, 224);
+    transition: 3s 1s;
+    text-align: center;
+    font-size: medium;
+}

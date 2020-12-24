@@ -1,0 +1,532 @@
+
+.tituloP{
+    color: rgb(238, 248, 248);
+    text-align: center;/*Color, text-align...son los atributos. Los valores son el color que eligimos, grueso etc */
+    font-size: 2cm;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: 15px solid rgb(209, 161, 5);
+    background-color: rgb(10, 10, 10);
+   }
+   body{
+       background-color: rgb(224, 230, 238);
+       font-size: 1cm;
+   }
+   .titulo{
+    color: rgba(10, 15, 10, 0.678);
+    margin-left: 2cm;
+    font-size: 1.5cm;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: left;
+}
+
+
+/*                       ELEMENTOS INLINE Y BLOCK DEL HTML
+
+Una duda típica a la hora de trabajar con HTML y CSS es tener claras las diferencias que existen entre elementos de 
+bloque y elementos en línea, así que vamos a intentar arrojar un poco de luz sobre este tema.
+
+Elementos INLINE
+Para explicarlo de manera sencilla, y simplificando, ciertas etiquetas HTML no afectan en absoluto al flujo de los demás 
+elementos, limitándose a marcar ciertos fragmentos con una determinada semántica y dejando que el texto y otros elementos 
+contiguos sigan fluyendo en la misma línea, colocándose a ambos lados de dicho elemento.
+
+Ejemplos de estas etiquetas son: <a>, <em>,<del>... y quizá la más útil de todas: la etiqueta <span>, que se usa para 
+envolver elementos en-línea para darles estilo sin cambiar su comportamiento. A estos elementos HTML se les llama 
+elementos de línea o, incluso más a menudo, por su denominación en inglés: elementos "inline".
+
+Importante recordar que los elementos inline NO tienen height(altura).
+
+Ejemplo de elemento inline con un <span>:                                   */
+
+.caja {
+	background-color: yellow;
+	border: 1px solid black;
+	width: 100px;
+	height: 100px;/* Solo funciona en elementos BLOCK */
+	padding: 5px;
+	margin: 50px 10px;
+}
+/*
+Elementos BLOCK
+Por el contrario, ciertas etiquetas se renderizan en el navegador en líneas independientes, no mezcladas con el resto del 
+texto.  Ejemplos de estas etiquetas son los encabezados (<h1> hasta <h6>), las citas en bloque (<blockquote>), por 
+supuesto los párrafos (<p>), y quizá la más conocida de todas que es la etiqueta <div> usada normalmente para envolver 
+a otros elementos. A estos elementos se les denomina elementos de bloque.
+
+Siguiendo con el mismo ejemplo anterior, si simplemente sustituimos los <span> por elementos <div>, ahora las cajas son 
+elementos de bloque, y se renderizarán de la siguiente manera:
+
+Ver en el html y la pagina web */
+
+/*
+CAMBIAR VISUALIZACION CON DISPLAY
+Bien, aparte de este comportamiento por defecto, es posible cambiar el modo en el que se visualiza/renderiza cualquier 
+elemento HTML de una página usando la propiedad CSS llamada display.
+
+Esta propiedad puede tomar muchos valores diferentes, pero los más comunes son estos tres:
+
+block: hace que el comportamiento del elemento sea como un bloque.
+inline: el elemento se renderizará en línea con otros elementos.
+inline-block: el elemento tendrá un comportamiento mezcla entre los dos anteriores, que ahora voy a describir.
+
+Así por ejemplo, aunque tengamos una etiqueta span que se renderiza en línea por defecto, si le aplicamos la propiedad 
+display:block; se renderizará como un bloque, es decir, sería exactamente igual que si hubiésemos puesto un <div>.
+
+El tercer valor de la lista anterior es muy interesante ya que permite obtener un comportamiento intermedio entre los 
+otros dos. Los elementos inline-block fluyen con el texto y demás elementos como si fueran elementos en-línea y además 
+respetan el ancho, el alto y los márgenes verticales. Son lo mejor de los dos mundos.
+
+Así, si por ejemplo redefinimos la etiqueta <span> con display un inline-blocky, lo que sucede es esto:
+*/
+
+.cajaDisplay {
+	background-color: yellow;
+	border: 1px solid black;
+	width: 100px;
+	height: 100px;/* Solo funciona en elementos BLOCK */
+	padding: 5px;
+    margin: 50px 10px;
+    display:inline-block;
+}
+/* Mismo ejemplo pero ahora tomando al <div>, voy a cambiarlo a inline 
+*/
+.cajaDisplay2 {
+	background-color: yellow;
+	border: 1px solid black;
+	width: 100px;
+	height: 100px;/* Solo funciona en elementos BLOCK */
+	padding: 5px;
+    margin: 50px 10px;
+    display:inline-block;
+}
+
+/*                      ESTILOS DE CAJA 
+
+INTERNOS:
+-Content
+-Padding
+-Border
+EXTERNOS:
+-Margin
+
+Ejemplo de crear un boton con un div, usando estilos de caja:
+*/
+.elemento{
+
+    background-color: blue;
+    color: white;
+    padding: 25px 35px 25px 35px; /* Como las agujas de un reloj, top, right, bottom, left */
+    display: inline-block;
+    font-size: 0.8cm;
+    border-radius: 20px;
+    border: 2px solid black;
+    margin-left: 5cm;
+
+}
+
+/*                      MEDIDAS DE LAS CAJAS 
+
+ALTO:   HEIGHT + PADDING + BORDER
+ANCHO:  WIDTH + PADDING + BORDER
+
+Si creamos una caja, por ejemplo de 300 x 200 y queremos agregarle un padding y un border, tenemos que descontar
+ambas medidas al largo y al ancho de la caja, ya que estos se suman por defecto:   */
+
+div[class*='caja'] label{
+    font-size: 0.8cm;
+    color: aqua;
+
+}
+
+.cajaM{
+ height: 150px; /*Descuento tanto el padding como el border al height y widht */
+ width: 250px;
+ border: 5px solid red; /*5 + 5 = 10px  */
+ padding: 20px; /* 20 + 20 = 40px  */
+ background-color: darkslategrey;
+ margin: 2cm 0.5cm 2cm 0.5cm;
+ display: inline-block;
+ text-align: center;
+}
+
+
+/* Ahora creo la misma caja, sin embargo esta vez sin descontar los valores de padding y border:   */
+
+.cajaS{
+ height: 200px;
+ width: 300px;
+ background-color: darkslategrey;
+ border: 5px solid red;
+ padding: 20px;
+ margin: 2cm 0.5cm 2cm 0.5cm;
+ display: inline-block;
+ text-align: center;
+
+}
+/*
+Para evitar tener que descontar manualmente padding y border, tenemos la propiedad box-sixing, con ella podemos seleccionar
+el tamanyo total de la caja seleccionando 3 valores, son los siguientes:
+
+*border-box:     Incluye boder + padding + content
+*padding-box     Incluye padding + content
+*content-box     Incluye content
+
+Al poner el atributo box-sizing: border-box; conseguimos que automaticamente la caja mida los 300 x 200 incluyendo 
+tanto el padding como el border */
+.cajaI{
+    box-sizing: border-box;
+    height: 200px;
+    width: 300px;
+    background-color: darkslategrey;
+    border: 5px solid red;
+    padding: 20px;
+    margin: 2cm 0.5cm 2cm 0.5cm;
+    display: inline-block;
+    text-align: center;
+    
+   }
+
+   /*   BUENAS PRACTICAS TRABAJANDO CON CAJAS
+
+   Si estamos creando codigo CSS sin trabajar con ningun framework (Boostrap, materialize...) es muy aconsejable 
+   agregar el siguiente codigo al inicio nuestro archivo:
+
+   *,
+   *:brfore,
+   *:after{
+    box-sizing: border-box
+   }
+ * Es un selector universal, por lo tanto estamos diciendo que todos los elementos caja, usen por defecto el border-box
+ */
+
+ /*            PROPIEDAD BORDER 
+
+ Tenemos diferentes estilos para los bordes de las cajas, una gran lista de estos son los siguientes:
+*/
+ 
+.cajaSolid{
+    border: 7px solid rgb(245, 108, 44); 
+ }
+ .cajaDashed{
+    border: 7px dashed rgb(245, 108, 44); 
+ }
+ .cajaDotted{
+    border: 7px dotted rgb(245, 108, 44); 
+ }
+ .cajaRidge{
+     border: 15px ridge rgb(245, 108, 44);
+ }
+ .cajaDouble{
+     border: 10px double rgb(245, 108, 44);
+ }
+ .cajaGroove{
+    border: 10px groove rgb(245, 108, 44);
+}
+.cajaInset{
+    border: 10px inset rgb(245, 108, 44);
+}
+.cajaOutset{
+    border: 10px outset rgb(245, 108, 44);
+}
+.cajaHidden{
+    border: 10px hidden rgb(245, 108, 44);
+
+}
+.BOX{
+    height: 200;
+    width: 300;
+    display: inline-block;
+    background-color: rgb(120, 206, 120);
+    box-sizing: border-box;
+    text-align: center;
+    padding: 75px;
+    margin: 0.8cm;
+}
+.BOX[class^= 'box' i] label{
+    color: rgb(255, 253, 251);}
+
+
+ /* La propiedad BORDER se utiliza normalmente con abreviacion (SHORTHAND), como vimos en los ejemplos anteriores. 
+ Realmente el codigo completo es el siguiente, podemos ver como combinar estilos en los diferentes lados de las cajas,
+ colores, gruesos:
+*/
+ .cajaCom{
+
+    border-style: ridge groove groove ridge; /*Simpre en sentido de las agujas del reloj */
+    border-width: 30px 30px 30px 30px;
+    border-color: darkmagenta red yellow blue;
+    padding: 13px;
+    background-color: rgb(15, 15, 15);
+ }
+ .cajaCom2{
+
+    border: 20px solid red;
+    border-bottom: none;
+    padding: 22px;
+    background-color: rgb(15, 15, 15);
+ }
+ .cajaCom3{
+
+    border-style: double solid double solid ;
+    border-width: 20px 10px;
+    border-color: goldenrod white goldenrod white;
+    padding: 13px;
+    background-color: rgb(15, 15, 15);
+ }
+
+ /*       BORDER RADIUS (Circulo)  
+ 
+ Podemos usar el BORDER-RADIUS para modificar las 4 esquinas de las cajas, simplemente tenemos que agregar un valor
+ para modificar todos los lados, o poner los valores uno a uno para cambiar lado por lado su radio.
+*/
+ .cajaR{
+
+    border: 10px solid orangered;
+    background-color: blue;
+    border-radius: 20px 80px 20px 80px;
+    padding: 60px;
+ }
+ .cajaR1{
+    width: 250px;
+    height: 250px;
+    border: 20px inset rgb(25, 154, 177);
+    background-color: rgb(156, 211, 5);
+    border-radius: 50%;
+    padding: 60px;
+ }
+ div[class*='R2']{
+    
+    width: 200px;
+    height: 250px;
+    border: 10px double red;
+    background-color: white;
+    border-radius: 100px 100px  0px 0px;
+    padding: 30px;
+    color: red;
+    text-align: center;
+ }
+
+  /*    BORDER REDIUS (ELIPSE  X / Y)  
+  
+  Tambien podemos crear elipses de dos formas, la primera es usando el SHORTHAND y colocando 
+  dos valores separados por una '/', (border-radius: 100px / 200px) se aplica a todos los lados.
+  La segunda y las mas facil de entender es usando el codigo completo con border-top-left-radius (esquina arriba izq)
+  y colocar dos valores, simplemente separados, no se usa la barra diagonal.*/
+
+  .cajaCir{
+
+    border: 5px solid rgb(255, 0, 149);
+    background-color: rgb(101, 101, 129);
+    border-radius: 200px / 50px; /*Cuando abreviamos y ponemos la '/' entre los valores, significa x/y */
+    padding: 60px;
+ }
+ .cajaCir1{
+
+    border: 10px solid rgb(255, 0, 0);
+    background-color: rgb(56, 56, 78);
+    border-top-left-radius: 200px 50px; /*Si no usamos la abreviacion no hace falta colocar la '/'  */
+    border-top-right-radius: 100px 200px;
+    padding: 60px;
+ }
+ .cajaCir2{
+
+    border: 20px solid rgb(75, 75, 75);
+    background-color: rgb(79, 199, 125);
+    border-bottom-right-radius: 200px 150px;
+    border-bottom-left-radius: 200px 150px;
+    padding: 35px;
+    color: rgb(235, 217, 217);
+ }
+
+ /*                  BACKGROUND 
+ */
+ .back{
+    height: 400;
+    width: 400;
+    display: inline-block;
+    border: 10px solid black;
+    padding: 40px;
+    box-sizing: border-box;
+ }
+ /*
+
+ Usando BACKGROUND tenemos varias propiedades, entre ellas estan:
+
+ -color
+ -image
+ -repeat
+ -size
+ -position
+ -url()
+ -clip
+ -original
+
+ */
+ .back.b1{
+ background-color: rgb(187, 35, 25);
+ background-image: url(https://image.flaticon.com/icons/png/512/919/919826.png);
+ background-size: 200px;
+ }
+ .back.b2{
+  background-image: url(https://image.flaticon.com/icons/png/512/919/919826.png);
+  background-size: 300px;
+  background-repeat: no-repeat; /* Usamos no-repeat para evitar la multi-copia de imagenes */
+  background-position: center center;
+  background-color: darkblue;
+ }
+ /*Insertamos mas de una imagen siempre que separamos con una coma*/
+ .back.b3{
+    background: url(https://image.flaticon.com/icons/png/512/919/919826.png),
+     url(https://cdn.pixabay.com/photo/2016/11/19/22/25/html5-1841458_960_720.png);
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-position: top left, bottom right;
+    background-color: blueviolet;
+   }
+   .back.b4{
+    background: url(https://cdni.rt.com/actualidad/public_images/2019.07/article/5d2e6cc108f3d982788b45c5.jpg),
+    url(https://static.lasprovincias.es/www/multimedia/201912/02/media/cortadas/tiburon-kR1-U90856897491O0F-1248x770@Las%20Provincias.jpg);
+        background-size: contain, 400px; /*Separamos por comas primera y segunda imagen*/
+        background-repeat: no-repeat;
+        background-position: top, center 200px
+   }
+   .back.b5{
+    background:  url(https://images.clarin.com/2020/07/15/el-enorme-tiburon-ataco-a___lnt-rJaho_340x340__1.jpg);
+    background-size: cover; /*Cubre toda la caja */
+    background-repeat: no-repeat;
+    background-position: top left, bottom right; 
+    background-color: blueviolet;
+   }
+   .back.b6{
+    background: url(https://image.flaticon.com/icons/png/512/919/919826.png),
+      url(https://media.metrolatam.com/2018/01/24/tiburc3b3nprehistc3b3ricomeme700x394-600x400.jpg);
+    background-size: 15%, 550px;
+    background-repeat: no-repeat;
+    background-position: 325px 305px, center ; /*Podemos indicar la posicion exacta de la imagen */
+    background-color: rgb(0, 0, 0);
+    
+   }
+   /* Jugando con box-sizing , el background CLIP y el background ORIGIN
+   
+   Ambos tienen como parametros content-box, paddign-box y border-box.
+   -CLIP nos da la opcion de mostrar el padding y el border, solapando la imagen.
+   -ORIGIN indica exactamente desde que punto empieza a dibujar la imagen
+
+   Los siguientes 3 ejemplos son con CLIP:
+   */
+
+
+   .backB.b7{
+    background: url(https://image.flaticon.com/icons/png/512/919/919826.png), rgb(241, 241, 92);
+    background-size: cover; /*Usamos cover para que siempre cubra el maximo de espacio en la caja */
+    background-repeat: no-repeat;
+    background-position: center ;
+    background-clip: content-box;/* Nos indica que parte del background se muestra */
+    
+   }
+   .backB.b8{
+    background: url(https://image.flaticon.com/icons/png/512/919/919826.png), rgb(241, 241, 92);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center ; /*Podemos indicar la posicion exacta de la imagen */
+    background-clip: padding-box;
+     }
+   .backB.b9{
+    background: url(https://image.flaticon.com/icons/png/512/919/919826.png), rgb(241, 241, 92);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center ; /*Podemos indicar la posicion exacta de la imagen */
+    background-clip: border-box;
+    }
+
+    /* Los siguientes 3 ejemplos son con ORIGIN, usando las mismas propiedades que CLIP:
+*/
+     .backB.b10{
+    background: url(https://image.flaticon.com/icons/png/512/919/919826.png), rgb(241, 241, 92);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center ;
+    background-origin: content-box;
+     }
+   .backB.b11{
+    background: url(https://image.flaticon.com/icons/png/512/919/919826.png), rgb(241, 241, 92);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center ; 
+    background-origin: padding-box;
+     }
+   .backB.b12{
+    background: url(https://image.flaticon.com/icons/png/512/919/919826.png), rgb(241, 241, 92);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center ;
+    background-origin: border-box;
+    }
+
+
+    .backB{
+        height: 300;
+        width: 300;
+        display: inline-block;
+        border: 20px dashed rgb(236, 5, 5);
+        padding: 30px;
+     }
+
+
+
+
+/*    COLAPSADO DE MARGENES
+
+Los márgenes Top y bottom de los bloques a veces están combinados (colapsados) en un solo margen cuyo tamaño es el mayor 
+de los márgenes combinados, un comportamiento conocido como colapso de margen. Ten en cuenta que los márgenes de flotantes 
+y elementos con posición absoluta nunca colapsan.
+
+El colapso de margen ocurre en tres casos básicos:
+
+HERMANOS ADJACENTES
+Los márgenes de los hermanos adjacentes son colapsados (excepto cuando el último hermano necesita ser limpiado después 
+de usar los flotantes).
+
+PADRE Y PRIMER/ULTIMO HIJO
+Si no hay un borde, padding, contenido en línea, block formatting context creado, o un limpiado para separar el margin-top 
+de un bloque del margin-top de su primer bloque hijo; o no hay borde, padding, contenido en línea, height, min-height, o 
+max-height para separar el margin-bottom de un bloque del margin-bottom de su último hijo, entonces esos márgenes colapsan. 
+El margen colapsado termina fuera del padre.
+
+BLOQUES VACIOS
+Si no hay borde, padding, contenido en línea, height, o min-height para separar el margin-top de un bloque de su 
+margin-bottom, entonces sus márgenes superiores e inferiores colapsan.
+
+Cosas a tener en cuenta:
+
+Cuando estos casos están combinados ocurrirá un colapso de márgenes más complejo (de más de dos márgenes).
+Estas reglas se aplican incluso a márgenes con valor cero, así que el margen del primer/último hijo siempre termina fuera 
+de su padre (de acuerdo a las reglas de arriba) independientemente de que el margen del padre sea o no sea cero.
+Cuando se trata de márgenes negativos, el tamaño del margen colapsado es la suma del margen positivo más grande y el 
+margen negativo más pequeño (el más negativo).
+Cuando todos los márgenes son negativos, el tamaño del margen colapsado es el margen más pequeño (el más negativo). 
+Esto se aplica tanto a los elementos adyacentes como a los elementos anidados.
+*/
+.p{
+    background-color: rgb(185, 185, 57);
+    margin-top: 1cm;
+    font-size: 1cm;
+
+}
+.in{
+    display: inline-block;
+    background-color: rgb(185, 185, 57);
+    margin:  1cm;
+    font-size: 1cm;
+}
+.pp{
+ background-color: rgb(185, 185, 57);
+ margin: 2cm 0cm 0cm 5cm;
+ font-size: 1cm;
+ display: block;
+}
+.div{
+    background-color: red;
+    font-size: 1cm;
+    margin-bottom: 2cm;
+}

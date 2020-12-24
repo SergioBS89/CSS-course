@@ -1,0 +1,305 @@
+
+.tituloP{
+    color: rgb(238, 248, 248);
+    text-align: center;/*Color, text-align...son los atributos. Los valores son el color que eligimos, grueso etc */
+    font-size: 2cm;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: 15px solid rgb(209, 161, 5);
+    background-color: rgb(10, 10, 10);
+   }
+   body{
+       background-color: rgb(250, 248, 140);
+       font-size: 1cm;
+   }
+   .titulo{
+    color: rgb(241, 121, 121);
+    margin-left: 2cm;
+    font-size: 1.5cm;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: left;
+}
+/* Buenas practicas*/
+*,
+ *::before,
+ *::after{
+  box-sizing: border-box;
+ }
+
+ /*             TABLES CSS   */
+
+ .tabla{
+     margin: 2cm auto;
+     border-collapse: collapse;
+     table-layout: fixed;
+     width: 80%;
+
+ }
+ .td{
+     border: 1px solid rgba(177, 169, 169, 0.425);
+     padding: 10px;
+     text-align: center;
+     font-size: 0.7cm;
+     background-color: white;
+ }
+ .th{
+     padding: 10px;
+     text-align: center;
+     font-size: 0.8cm;
+     background-color: rgba(125, 125, 177, 0.781);
+     border-right: 2px solid rgba(177, 169, 169, 0.425);
+     color: white;
+ }
+ .th:last-child{
+     border-right: 1px solid rgba(125, 125, 177, 0.781);
+ }
+.tr1 :nth-child(n){
+    background-color: rgba(204, 195, 195, 0.582)
+}
+
+/*
+Propiedades CSS para personalizar tablas HTML
+
+Existen varias propiedades CSS aplicables a tablas, por ejemplo los márgenes, bordes, rellenos, colores de letra, colores 
+de fondo, etc. son aplicables a tablas y a estas alturas ya las hemos conocido. Ahora nos toca conocer aquellas que sirve 
+para maquetar tablas en especial.
+
+La propiedad BORDER COLLAPSE
+Recordemos que al definir un borde para tabla en HTML, estos bordes se muestran separados, cada elemento de tablas posee 
+su propio borde.
+
+La propiedad border-collapse nos permite colapsar esos bordes separados en un solo borde o mantenerlos separados, 
+veamos los posibles valores:
+
+Valores para border-collapse
+inherit.- establece que se debe heredar el estilo del elemento padre que contiene a la tabla.
+separate.- indica que los bordes deben ser separados.
+collapse.- hace que los bordes sean colapsados en uno solo. 
+
+Ejemplo:  */
+
+.separado {
+border-collapse: separate;
+width: 700px;
+margin: auto;
+}
+.separado tr td{
+    padding: 10px;
+ font-size: 0.8cm;
+}
+
+.colapsado {
+    border-collapse: collapse;
+    width: 700px;
+    margin: auto;
+}
+.colapsado tr td{
+    padding: 10px;
+    font-size: 0.8cm;
+}
+
+/*  BORDER SPACING  
+
+La propiedad border-spacing nos permite establecer el espacio entre celdas adyacentes de una tabla y solo funciona cuando 
+los bordes de celdas están separadas (border-collapse="separate;"), es similar a la propiedad de relleno que conocimos en 
+lecciones anteriores, pero en este caso se trata de elementos de tabla.
+
+La propiedad border-spacing puede tomar cualquier valor numérico, con su respectiva unidad de medida.
+
+Podemos definir espacios uniformes en todos los lados al expresar un solo valor numérico o también podemos expresar dos 
+valores numéricos, en ese caso el primero establece el espaciado horizontal y el segundo el espaciado vertical.
+
+Ten presente que el espaciado horizontal es aquella que separa a las celdas de una fila y el espaciado vertical aquella 
+que separa las celdas de una columna. */
+
+table.sinespacio {
+    border-collapse: separate;
+    width: 700px;
+    margin: auto;}
+    .sinespacio tr td{
+        padding: 10px;
+     font-size: 0.8cm;
+    }
+
+  table.conespacio {
+  border-collapse: separate;
+  border-spacing: 30px;
+  width: 700px;
+  margin: auto;
+}
+.conespacio tr td{
+    padding: 10px;
+ font-size: 0.8cm;
+}
+  table.diferent {
+  border-collapse: separate;
+  border-spacing: 70px 15px;
+  width: 700px;
+  margin: auto;
+}
+.diferent tr td{
+    padding: 10px;
+ font-size: 0.8cm;
+}
+
+/*    CAPTION SIDE   
+
+La propiedad caption-side está pensada para posicionar la leyenda de las tablas con CSS, como bien sabemos la leyenda de 
+una tabla describe su contenido y gracias a caption-side podemos indicar que la leyenda se muestre en la parte superior 
+o inferior.
+
+Valores para caption-side
+top.- Coloca la leyenda en la parte superior.
+bottom.- Indica que la leyenda va en la parte inferior.   */
+
+.colors {
+    width: 700px;
+    margin: auto;
+    border-collapse: collapse;
+  }
+  .colors tr td{
+      padding: 10px;
+   font-size: 0.8cm;
+  }
+  .colors tr th{
+      padding: 12px;
+      font-size: 0.9cm;
+  }
+  
+  
+  caption {
+      caption-side:bottom;
+      color: blue;
+    }
+
+  /*           EMPTY CELLS  
+  
+La propiedad empty-cells nos permite establecer si se muestran o no los bordes de celdas que no poseen contenido dentro 
+de ella, y los podemos notar cuando los bordes de celda se encuentran separados (border-collapse: separate;).
+
+Los valores para empty-cells son:
+Show.- indica que los bordes de celdas sin contenido se muestren.
+Hide.- indica que los bordes de celdas vacías no se muestren.   */
+
+.hide {
+    border-collapse:separate;
+    empty-cells: hide;
+    margin: auto;
+    width: 700px;
+    
+    }
+ .hide tr td{
+    padding: 10px;
+    font-size: 0.8cm;
+ }   
+.show {
+    border-collapse:separate;
+    empty-cells: show;
+    margin: auto;
+    width: 700px;
+    }
+.show tr td{
+    padding: 10px;
+    font-size: 0.8cm;
+ }     
+
+/*     TABLE LAYOUT
+
+La propiedad table-layout sirve para determinar el ancho de las columnas de una tabla, nos referimos a la dimensión 
+horizontal de celdas; es posible determinar si el ancho será fijo o automático de acuerdo al contenido. Conozcamos sus 
+valores.
+
+Valores de table-layout
+
+Auto.- este es el valor por defecto, indica que el ancho se ajusta al contenido automáticamente, es decir será 
+proporcional a la cantidad de contenido que poseen las celdas.
+Fixed.- indica que el ancho de columna es fijo y no se ajusta al contenido que contienen las celdas, por ello es 
+posible que el contenido se salga de una celda, visualmente invadiendo a otras.  */
+
+.auto {
+    table-layout: auto;
+    width: 700PX;
+    margin: auto;
+  }
+ .auto tr td{
+     padding: 10px;
+     font-size: 0.8cm;
+ } 
+.fixed {
+    table-layout: fixed;
+    width: 700PX;
+    margin: auto;
+  }
+  .fixed tr td{
+    padding: 10px;
+    font-size: 0.8cm;
+  }
+.mas {
+   table-layout: fixed;
+   width: 900px;
+   margin: auto;
+}
+.mas tr td{
+    padding: 10px;
+    font-size: 0.8cm;
+}
+
+/*        DEGRADADOS DE COLORES   */
+
+.degradados{
+    display: flex;
+    flex-direction: column;
+}
+.degradados div{
+    width: 90%;
+    height: 600px;
+    margin: auto;
+    margin-bottom: 1cm;
+    background-color: violet;
+}
+.deg1{
+    background-image: linear-gradient(red,blue);
+}
+.deg2{
+    background-image: linear-gradient(green,orange,magenta,cyan);
+}
+.deg3{
+    background-image: linear-gradient(blue 50%,yellow); /*Mantiene el azul puro hasta el 50 porciento de espacio */
+}
+.deg4{
+    background-image: linear-gradient(white 50%, black 50%)
+}
+.deg5{
+    background-image: linear-gradient(30deg, brown 25%, gray 75%);
+}
+.deg6{
+    background-image: linear-gradient(to left, orange, black);
+    color: white;
+}
+.deg7{
+    background: url(https://noticiasyanalisisfx.com/wp-content/uploads/2019/12/1078039558_20181206130227303-ktL-U453396629564lwD-980x554@MundoDeportivo-Web.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.deg7::before{
+    background-image: linear-gradient(40deg, rgba(240, 238, 228, 0.836)25%, rgb(235, 163, 29)75%);
+    width: 100%;
+    height: 100%;
+    display: block;
+    content: "degradado de imagen";
+    opacity: 0.5;
+ } 
+.deg8{
+    background-image: radial-gradient(white 30%, cyan 50%);
+}
+.deg9{
+    background-image: radial-gradient(circle, rgb(163, 33, 33) 30%, rgb(21, 187, 30) 50%);
+}
+.deg10{
+    background-image: radial-gradient(circle at 100% 0px, rgb(223, 63, 151) 25% , rgb(228, 241, 229) 80%);
+}
+
+  
+  
+  
+  
+
